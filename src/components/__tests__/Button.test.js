@@ -17,4 +17,22 @@ describe("Button", function() {
     const button = mountedButton.find('button');
     expect(button.length).toBe(1);
   });
+});
+
+describe("When a location is passed to it", () => {
+  let mountedButton;
+  let props;
+
+  beforeEach(() => {
+    props = {
+      location: undefined
+    };
+
+    mountedButton = shallow(<Button {...props} />);
+  });
+
+  it('displays the location', () => {
+    const locName = mountedButton.find('.location-button');
+    expect(locName.text()).toEqual('All Locations');
+  });
 })

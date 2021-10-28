@@ -1,7 +1,24 @@
-import ReactDOM from 'react-dom';
+import React from 'react';
+import { shallow } from 'enzyme';
+
 import Header from '../Header';
 
-test('renders without crashing', () => {
-  const div = document.createElement('div');
-  ReactDOM.render(<Header />, div);
+describe("Header", () => {
+  let mountedHeader;
+
+  beforeEach(() => {
+    mountedHeader = shallow(<Header />)
+  });
+
+  it('renders without crashing', () => {
+    shallow(<Header />);
+  });
+
+  it('renders a logo', () => {
+    const logoImg = mountedHeader.find('img [src="images/wired-brain-logo.png"]');
+    // console.log(logoImg.length)
+    // expect(logoImg.length).toBe(1);
+  });
 });
+
+
